@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monobank.Core", "Monobank.Core\Monobank.Core.csproj", "{843F2C8B-FEF0-4241-863A-9A15DC69106B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monobank.Tests", "Monobank.Tests\Monobank.Tests.csproj", "{163928F8-82AB-47C1-B794-99FD516704AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{843F2C8B-FEF0-4241-863A-9A15DC69106B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{843F2C8B-FEF0-4241-863A-9A15DC69106B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{843F2C8B-FEF0-4241-863A-9A15DC69106B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{843F2C8B-FEF0-4241-863A-9A15DC69106B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163928F8-82AB-47C1-B794-99FD516704AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163928F8-82AB-47C1-B794-99FD516704AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163928F8-82AB-47C1-B794-99FD516704AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163928F8-82AB-47C1-B794-99FD516704AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C319BAE9-149E-46C0-ABF6-40F639F75FD7}
+	EndGlobalSection
+EndGlobal
