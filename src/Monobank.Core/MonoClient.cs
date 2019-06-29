@@ -11,8 +11,9 @@ namespace Monobank.Core
         private const string ResponseMediaType = "application/json";
 
         public CurrencyService Currency { get; }
+        public ClientService Client { get; }
 
-        public MonoClient()
+        public MonoClient(string token = "")
         {
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -20,6 +21,7 @@ namespace Monobank.Core
             httpClient.BaseAddress = new Uri(BaseApiUrl);
 
             Currency = new CurrencyService(httpClient);
+            Client = new ClientService(httpClient, token);
         }
     }
 }

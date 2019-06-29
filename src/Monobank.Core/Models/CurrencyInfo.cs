@@ -12,7 +12,7 @@ namespace Monobank.Core.Models
         public string CurrencyCodeB { get; set; }
 
         [DataMember(Name = "date")]
-        public ulong Date { get; set; }
+        public long Date { get; set; }
 
         [DataMember(Name = "rateSell")]
         public float RateSell { get; set; }

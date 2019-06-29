@@ -1,6 +1,9 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Monobank.Core;
 using NUnit.Framework;
+using Monobank.Core.Extensions;
 
 namespace Monobank.Tests
 {
@@ -12,7 +15,7 @@ namespace Monobank.Tests
         [SetUp]
         public void Setup()
         {
-            _client = new MonoClient();
+            _client = new MonoClient("");
         }
 
         [Test]
@@ -25,6 +28,18 @@ namespace Monobank.Tests
         public async Task GetCurrencies()
         {
             var currencies = await _client.Currency.GetCurrencies();
+        }
+
+        [Test]
+        public async Task GetClientInfo()
+        {
+            var client = await _client.Client.GetClientInfo();
+        }
+
+        [Test]
+        public async Task GetClientStatement()
+        {
+            var statements = await _client.Client.GetStatements(new DateTime(2019, 6, 1), new DateTime(2019, 6, 30));
         }
     }
 }

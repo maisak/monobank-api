@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Monobank.API.Core</PackageId>
+    <PackageTags>API monobank net-standard-2</PackageTags>
+    <Authors>Anthony Maisak</Authors>
+    <Company>Anthony Maisak</Company>
+    <Description>Monobank.ua API wrapper</Description>
+    <Copyright>Copyright 2019</Copyright>
+    <PackageProjectUrl>https://github.com/maisak/monobank-api</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
+    <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Added client information API call.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
