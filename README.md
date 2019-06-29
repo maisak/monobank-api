@@ -25,4 +25,10 @@ static async Task Main(string[] args)
 ```
 #### Statements
 ```
+static async Task Main(string[] args)
+{
+    var mono = new MonoClient("YOUR_TOKEN");
+    var statements = await mono.Client.GetStatements(from: new DateTime(2019, 6, 1), 
+                                                     to: new DateTime(2019, 6, 30));
+}
 ```
