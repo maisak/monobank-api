@@ -24,7 +24,7 @@ namespace Monobank.Tests
         [Test]
         public async Task GetCurrencies()
         {
-            var currencies = await _client.GetCurrencies();
+            var currencies = await _client.Currency.GetCurrencies();
         }
     }
 }

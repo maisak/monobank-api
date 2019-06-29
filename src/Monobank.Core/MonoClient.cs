@@ -1,33 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Monobank.Core.Services;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Monobank.Core.Models;
-using Newtonsoft.Json;
 
 namespace Monobank.Core
 {
     public class MonoClient
     {
         private const string BaseApiUrl = "https://api.monobank.ua/";
-        private const string CurrencyEndpoint = "bank/currency";
         private const string ResponseMediaType = "application/json";
-        private readonly HttpClient _httpClient;
+
+        public CurrencyService Currency { get; }
 
         public MonoClient()
         {
-            _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(ResponseMediaType));
-        }
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(ResponseMediaType));
+            httpClient.BaseAddress = new Uri(BaseApiUrl);
 
-        public async Task<ICollection<CurrencyInfo>> GetCurrencies()
-        {
-            var uri = new Uri($"{BaseApiUrl}{CurrencyEndpoint}");
-            var response = await _httpClient.GetAsync(uri);
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ICollection<CurrencyInfo>>(responseString);
+            Currency = new CurrencyService(httpClient);
         }
     }
 }
