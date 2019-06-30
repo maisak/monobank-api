@@ -1,9 +1,7 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Monobank.Core;
 using NUnit.Framework;
-using Monobank.Core.Extensions;
+using System;
+using System.Threading.Tasks;
 
 namespace Monobank.Tests
 {

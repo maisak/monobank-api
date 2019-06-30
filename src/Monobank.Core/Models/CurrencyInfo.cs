@@ -1,8 +1,9 @@
-﻿using System.Runtime.Serialization;
-using ISO._4217;
+﻿using ISO._4217;
+using System.Runtime.Serialization;
 
 namespace Monobank.Core.Models
 {
+    [DataContract]
     public sealed class CurrencyInfo
     {
         [DataMember(Name = "currencyCodeA")]

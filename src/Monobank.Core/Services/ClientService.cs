@@ -1,10 +1,10 @@
-﻿using Monobank.Core.Models;
+﻿using Monobank.Core.Extensions;
+using Monobank.Core.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Monobank.Core.Extensions;
 
 namespace Monobank.Core.Services
 {
@@ -26,6 +26,11 @@ namespace Monobank.Core.Services
             var uri = new Uri(ClientInfoEndpoint, UriKind.Relative);
             var response = await _httpClient.GetAsync(uri);
             var responseString = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = JsonConvert.DeserializeObject<Error>(responseString);
+                throw new Exception(error.Description);
+            }
             return JsonConvert.DeserializeObject<ICollection<UserInfo>>(responseString);
         }
 
@@ -33,8 +38,12 @@ namespace Monobank.Core.Services
         {
             var uri = new Uri($"{StatementEndpoint}/{account}/{from.ToUnixTime()}/{to.ToUnixTime()}", UriKind.Relative);
             var response = await _httpClient.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = JsonConvert.DeserializeObject<Error>(responseString);
+                throw new Exception(error.Description);
+            }
             return JsonConvert.DeserializeObject<ICollection<Statement>>(responseString);
         }
     }

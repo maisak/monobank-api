@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
-using ISO._4217;
+﻿using ISO._4217;
 using Monobank.Core.Extensions;
+using System;
+using System.Runtime.Serialization;
 
 namespace Monobank.Core.Models
 {

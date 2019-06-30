@@ -22,6 +22,11 @@ namespace Monobank.Core.Services
             var uri = new Uri($"{CurrencyEndpoint}", UriKind.Relative);
             var response = await _httpClient.GetAsync(uri);
             var responseString = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = JsonConvert.DeserializeObject<Error>(responseString);
+                throw new Exception(error.Description);
+            }
             return JsonConvert.DeserializeObject<ICollection<CurrencyInfo>>(responseString);
         }
     }

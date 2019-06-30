@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ISO._4217;
 using System.Runtime.Serialization;
-using System.Text;
-using ISO._4217;
 
 namespace Monobank.Core.Models
 {
+    [DataContract]
     public class Account
     {
         [DataMember(Name = "id")]

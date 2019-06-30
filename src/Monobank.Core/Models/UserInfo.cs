@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Monobank.Core.Models
 {
+    [DataContract]
     public class UserInfo
     {
         [DataMember(Name = "name")]
