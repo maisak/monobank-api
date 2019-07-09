@@ -12,6 +12,7 @@ namespace Monobank.Core.Services
     {
         private const string ClientInfoEndpoint = "personal/client-info";
         private const string StatementEndpoint = "personal/statement";
+        private const string WebhookEndpoint = "personal/webhook";
         private const string TokenHeader = "X-Token";
         private readonly HttpClient _httpClient;
 
@@ -21,7 +22,7 @@ namespace Monobank.Core.Services
             _httpClient.DefaultRequestHeaders.Add(TokenHeader, token);
         }
 
-        public async Task<ICollection<UserInfo>> GetClientInfo()
+        public async Task<UserInfo> GetClientInfo()
         {
             var uri = new Uri(ClientInfoEndpoint, UriKind.Relative);
             var response = await _httpClient.GetAsync(uri);
@@ -31,7 +32,7 @@ namespace Monobank.Core.Services
                 var error = JsonConvert.DeserializeObject<Error>(responseString);
                 throw new Exception(error.Description);
             }
-            return JsonConvert.DeserializeObject<ICollection<UserInfo>>(responseString);
+            return JsonConvert.DeserializeObject<UserInfo>(responseString);
         }
 
         public async Task<ICollection<Statement>> GetStatements(DateTime from, DateTime to, string account = "0")
@@ -45,6 +46,12 @@ namespace Monobank.Core.Services
                 throw new Exception(error.Description);
             }
             return JsonConvert.DeserializeObject<ICollection<Statement>>(responseString);
+        }
+
+        public async Task SetWebhook(string url)
+        {
+            var uri = new Uri(WebhookEndpoint, UriKind.Relative);
+            //var response = await _httpClient.PostAsync(uri, )
         }
     }
 }

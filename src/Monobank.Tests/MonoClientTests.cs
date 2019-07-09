@@ -26,18 +26,25 @@ namespace Monobank.Tests
         public async Task GetCurrencies()
         {
             var currencies = await _client.Currency.GetCurrencies();
+            Assert.IsNotNull(currencies);
+            Assert.IsNotEmpty(currencies);
         }
 
         [Test]
         public async Task GetClientInfo()
         {
             var client = await _client.Client.GetClientInfo();
+            Assert.IsNotNull(client);
+            Assert.IsNotEmpty(client.Accounts);
+            Assert.IsFalse(string.IsNullOrEmpty(client.Name));
         }
 
         [Test]
         public async Task GetClientStatement()
         {
             var statements = await _client.Client.GetStatements(new DateTime(2019, 6, 1), new DateTime(2019, 6, 30));
+            Assert.IsNotNull(statements);
+            Assert.IsNotEmpty(statements);
         }
     }
 }

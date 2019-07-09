@@ -12,8 +12,9 @@
     <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
     <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>Handle possible request errors in all calls.</PackageReleaseNotes>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>- fixed client info response; 
+- added tests.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

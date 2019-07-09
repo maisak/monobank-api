@@ -12,7 +12,7 @@ namespace Monobank.Core
 
         public CurrencyService Currency { get; }
         public ClientService Client { get; }
-
+        
         public MonoClient(string token = "")
         {
             var httpClient = new HttpClient();
