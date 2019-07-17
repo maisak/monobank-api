@@ -18,7 +18,7 @@ namespace Monobank.Core.Models
         public string Description { get; set; }
 
         [DataMember(Name = "mcc")]
-        public int MCC { get; set; }
+        public int MerchantCategoryCode { get; set; }
 
         [DataMember(Name = "hold")]
         public bool IsHold { get; set; }

@@ -48,10 +48,16 @@ namespace Monobank.Core.Services
             return JsonConvert.DeserializeObject<ICollection<Statement>>(responseString);
         }
 
-        public async Task SetWebhook(string url)
+        public async Task<bool> SetWebhook(string url)
         {
+            // create body containing webhook url
+            var body = JsonConvert.SerializeObject(new {webHookUrl = url});
+            // uri to call
             var uri = new Uri(WebhookEndpoint, UriKind.Relative);
-            //var response = await _httpClient.PostAsync(uri, )
+            // set webhook
+            var response = await _httpClient.PostAsync(uri, new StringContent(body));
+
+            return response.IsSuccessStatusCode;
         }
     }
 }
