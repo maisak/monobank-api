@@ -46,3 +46,12 @@ static async Task Main(string[] args)
     bool success = await mono.Client.SetWebhook("https:\\example.com\webhook\test");
 }
 ```
+To check webhook url - query user information and refer to ```webHookUrl``` property:
+```
+static async Task Main(string[] args)
+{
+    var mono = new MonoClient("YOUR_TOKEN");
+    var userInfo = await mono.Client.GetClientInfo();
+    var webHookUrl = userInfo.WebHookUrl;
+}
+```
