@@ -32,3 +32,17 @@ static async Task Main(string[] args)
                                                      to: new DateTime(2019, 6, 30));
 }
 ```
+#### Webhook
+Allows to be notified when there are transactions on user account.
+
+According to [documentation](https://api.monobank.ua/docs), you need a POST endpoint to listen to webhook and the same GET endpoint for backing services to check availability. If you set webhook at ```https:\\example.com\webhook\test``` url - you will actually need two endpoints:  
+**GET     https:\\example.com\webhook\test**  
+**POST    https:\\example.com\webhook\test**
+
+```
+static async Task Main(string[] args)
+{
+    var mono = new MonoClient("YOUR_TOKEN");
+    bool success = await mono.Client.SetWebhook("https:\\example.com\webhook\test");
+}
+```
