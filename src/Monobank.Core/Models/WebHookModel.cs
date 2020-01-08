@@ -1,21 +1,20 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public class WebHookModel
     {
-        [DataMember(Name = "type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; }
-        [DataMember(Name = "data")]
+        [JsonPropertyName("data")]
         public WebHookData Data { get; set; }
     }
 
     public class WebHookData
     {
-        [DataMember(Name = "account")]
+        [JsonPropertyName("account")]
         public string Account { get; set; }
-        [DataMember(Name = "statementItem")]
+        [JsonPropertyName("statementItem")]
         public Statement StatementItem { get; set; }
     }
 }

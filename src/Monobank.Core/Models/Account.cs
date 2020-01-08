@@ -1,24 +1,23 @@
 ﻿using ISO._4217;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public class Account
     {
-        [DataMember(Name = "id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [DataMember(Name = "balance")]
+        [JsonPropertyName("balance")]
         public long Balance { get; set; }
 
-        [DataMember(Name = "creditLimit")]
+        [JsonPropertyName("creditLimit")]
         public long CreditLimit { get; set; }
 
-        [DataMember(Name = "currencyCode")]
-        public string CurrencyCode { get; set; }
+        [JsonPropertyName("currencyCode")]
+        public int CurrencyCode { get; set; }
 
-        [DataMember(Name = "cashbackType")]
+        [JsonPropertyName("cashbackType")]
         public string CashbackType { get; set; }
 
         #region Custom properties

@@ -1,27 +1,27 @@
 ﻿using ISO._4217;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public sealed class CurrencyInfo
     {
-        [DataMember(Name = "currencyCodeA")]
-        public string CurrencyCodeA { get; set; }
+        [JsonPropertyName("currencyCodeA")]
+        public int CurrencyCodeA { get; set; }
 
-        [DataMember(Name = "currencyCodeB")]
-        public string CurrencyCodeB { get; set; }
+        [JsonPropertyName("currencyCodeB")]
+        public int CurrencyCodeB { get; set; }
 
-        [DataMember(Name = "date")]
+        [JsonPropertyName("date")]
         public long Date { get; set; }
 
-        [DataMember(Name = "rateSell")]
+        [JsonPropertyName("rateSell")]
         public float RateSell { get; set; }
 
-        [DataMember(Name = "rateBuy")]
+        [JsonPropertyName("rateBuy")]
         public float RateBuy { get; set; }
 
-        [DataMember(Name = "rateCross")]
+        [JsonPropertyName("rateCross")]
         public float RateCross { get; set; }
 
         #region Custom properties

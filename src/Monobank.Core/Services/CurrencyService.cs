@@ -1,8 +1,8 @@
 ﻿using Monobank.Core.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Monobank.Core.Services
@@ -24,10 +24,14 @@ namespace Monobank.Core.Services
             var responseString = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
-                var error = JsonConvert.DeserializeObject<Error>(responseString);
+                var error = JsonSerializer.Deserialize<Error>(responseString);
                 throw new Exception(error.Description);
             }
-            return JsonConvert.DeserializeObject<ICollection<CurrencyInfo>>(responseString);
+
+            //var arr = JsonSerializer.Deserialize<CurrencyInfo[]>(responseString);
+            //var enu = JsonSerializer.Deserialize<IEnumerable<CurrencyInfo>>(responseString);
+
+            return JsonSerializer.Deserialize<ICollection<CurrencyInfo>>(responseString);
         }
     }
 }

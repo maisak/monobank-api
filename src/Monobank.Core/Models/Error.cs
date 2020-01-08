@@ -1,11 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public class Error
     {
-        [DataMember(Name = "errorDescription")]
+        [JsonPropertyName("errorDescription")]
         public string Description { get; set; }
     }
 }

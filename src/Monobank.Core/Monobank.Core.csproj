@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>Monobank.API.Core</PackageId>
     <PackageTags>API monobank net-standard-2</PackageTags>
     <Authors>Anthony Maisak</Authors>
@@ -17,13 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ISO.CurrencyCodes" Version="1.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\Users\antho\.nuget\packages\newtonsoft.json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.8" />
+    <PackageReference Include="System.Text.Json" Version="4.7.0" />
   </ItemGroup>
 
 </Project>

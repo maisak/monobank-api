@@ -2,43 +2,43 @@
 using Monobank.Core.Extensions;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public class Statement
     {
-        [DataMember(Name = "id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [DataMember(Name = "time")]
+        [JsonPropertyName("time")]
         public long TimeInSeconds { get; set; }
 
-        [DataMember(Name = "description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [DataMember(Name = "mcc")]
+        [JsonPropertyName("mcc")]
         public int MerchantCategoryCode { get; set; }
 
-        [DataMember(Name = "hold")]
+        [JsonPropertyName("hold")]
         public bool IsHold { get; set; }
 
-        [DataMember(Name = "amount")]
+        [JsonPropertyName("amount")]
         public long Amount { get; set; }
 
-        [DataMember(Name = "operationAmount")]
+        [JsonPropertyName("operationAmount")]
         public long OperationAmount { get; set; }
 
-        [DataMember(Name = "currencyCode")]
-        public string CurrencyCode { get; set; }
+        [JsonPropertyName("currencyCode")]
+        public int CurrencyCode { get; set; }
 
-        [DataMember(Name = "commissionRate")]
+        [JsonPropertyName("commissionRate")]
         public long ComissionRate { get; set; }
 
-        [DataMember(Name = "cashbackAmount")]
+        [JsonPropertyName("cashbackAmount")]
         public long CashbackAmount { get; set; }
 
-        [DataMember(Name = "balance")]
+        [JsonPropertyName("balance")]
         public long Balance { get; set; }
 
         #region Custom properties

@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
 {
-    [DataContract]
     public class UserInfo
     {
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "webHookUrl")]
+        [JsonPropertyName("webHookUrl")]
         public string WebHookUrl { get; set; }
 
-        [DataMember(Name = "accounts")]
+        [JsonPropertyName("accounts")]
         public ICollection<Account> Accounts { get; set; }
     }
 }

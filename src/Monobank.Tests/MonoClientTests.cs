@@ -1,6 +1,7 @@
 using Monobank.Core;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Monobank.Tests
@@ -13,7 +14,7 @@ namespace Monobank.Tests
         [SetUp]
         public void Setup()
         {
-            _client = new MonoClient("");
+            _client = new MonoClient("uA1Dddliem9001qkAlWaXEmvrXSxitTcClzVNqGUuvOw");
         }
 
         [Test]
