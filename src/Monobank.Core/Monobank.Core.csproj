@@ -12,12 +12,12 @@
     <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
     <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <PackageReleaseNotes>Webhook support added.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.8" />
+    <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.9" />
     <PackageReference Include="System.Text.Json" Version="4.7.0" />
   </ItemGroup>
 
