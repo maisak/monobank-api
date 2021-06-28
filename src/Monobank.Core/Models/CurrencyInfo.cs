@@ -1,5 +1,4 @@
 ﻿using ISO._4217;
-using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
