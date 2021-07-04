@@ -55,3 +55,11 @@ static async Task Main(string[] args)
     var webHookUrl = userInfo.WebHookUrl;
 }
 ```
+## How to test:
+In a test project create `appsettings.test.json` file. Set its `Copy to output directory` property to `Copy if newer`. Fill in the `ApiKey` field and enjoy safe testing :)
+```
+{
+    "ApiKey": "<your-api-key>"
+}
+```
+Note: `appsettings.test.json` added to `.gitignore`, so it won't be commited and pushed to the repository.
