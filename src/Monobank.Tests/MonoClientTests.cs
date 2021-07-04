@@ -33,7 +33,7 @@ namespace Monobank.Tests
         [Test]
         public async Task GetClientInfo()
         {
-            var client = await _client.Client.GetClientInfo();
+            var client = await _client.Client.GetClientInfoAsync();
             Assert.IsNotNull(client);
             Assert.IsNotEmpty(client.Accounts);
             Assert.IsFalse(string.IsNullOrEmpty(client.Name));
@@ -42,42 +42,35 @@ namespace Monobank.Tests
         [Test]
         public async Task GetClientStatement()
         {
-            var statements = await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 6, 30));
+            var now = DateTime.UtcNow;
+            var statements = await _client.Client.GetStatementsAsync(now.AddDays(-30), now);
             Assert.IsNotNull(statements);
             Assert.IsNotEmpty(statements);
         }
 
         [Test]
-        public async Task GetClientStatementFailOffset()
+        public async Task GetClientStatementFailOnTimeRange()
         {
-            Exception exception = null;
-            try
-            {
-                await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 7, 30));
-            }
-            catch (Exception e)
-            {
-                exception = e;
-            }
-
-            Assert.AreEqual("Time range exceeds allowed. Difference between from and to should less then 31 day + 1 hour", exception?.Message);
+            var now = DateTime.UtcNow;
+            Assert.ThrowsAsync(
+                Is.TypeOf<Exception>().And.Message.Contains("Time range exceeded"),
+                async () =>
+                {
+                    await _client.Client.GetStatementsAsync(now.AddDays(-32), now);
+                });
         }
 
         [Test]
-        public async Task GetClientStatementFailTooManyRequests()
+        public async Task GetClientStatementFailOnRequestLimit()
         {
-            Exception exception = null;
-            try
-            {
-                await _client.Client.GetStatements(new DateTime(2021, 5, 1), new DateTime(2021, 5, 30));
-                await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 6, 30));
-            }
-            catch (Exception e)
-            {
-                exception = e;
-            }
-
-            Assert.AreEqual("Too many requests. Only 1 request per 60 seconds", exception?.Message);
+            var now = DateTime.UtcNow;
+            Assert.ThrowsAsync(
+                Is.TypeOf<Exception>().And.Message.Contains("Request limit exceeded"),
+                async () =>
+                {
+                    await _client.Client.GetStatementsAsync(now.AddDays(-1), now);
+                    await _client.Client.GetStatementsAsync(now.AddDays(-1), now);
+                });
         }
     }
 }
