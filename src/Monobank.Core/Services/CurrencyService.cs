@@ -28,9 +28,6 @@ namespace Monobank.Core.Services
                 throw new Exception(error.Description);
             }
 
-            //var arr = JsonSerializer.Deserialize<CurrencyInfo[]>(responseString);
-            //var enu = JsonSerializer.Deserialize<IEnumerable<CurrencyInfo>>(responseString);
-
             return JsonSerializer.Deserialize<ICollection<CurrencyInfo>>(responseString);
         }
     }
