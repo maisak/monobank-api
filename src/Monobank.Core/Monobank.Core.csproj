@@ -7,13 +7,13 @@
     <Authors>Anthony Maisak</Authors>
     <Company>Anthony Maisak</Company>
     <Description>Monobank.ua API wrapper</Description>
-    <Copyright>Copyright 2019</Copyright>
+    <Copyright>Copyright 2021</Copyright>
     <PackageProjectUrl>https://github.com/maisak/monobank-api</PackageProjectUrl>
     <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
     <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
-    <Version>1.0.7</Version>
-    <PackageReleaseNotes>Webhook support added.</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated code to reflect API changes.</PackageReleaseNotes>
+    <PackageVersion>1.0.8</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
