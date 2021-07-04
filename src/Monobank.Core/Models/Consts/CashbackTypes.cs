@@ -7,12 +7,12 @@ namespace Monobank.Core.Models.Consts
     public enum CashbackTypes
     {
         [EnumMember(Value = "")]
-        None = 1,
+        None = 0,
 
         [EnumMember(Value = "UAH")]
-        UAH = 2,
+        UAH = 1,
 
         [EnumMember(Value = "Miles")]
-        Miles = 3
+        Miles = 2
     }
 }
