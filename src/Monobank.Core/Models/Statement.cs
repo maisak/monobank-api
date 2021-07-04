@@ -1,7 +1,6 @@
 ﻿using ISO._4217;
 using Monobank.Core.Extensions;
 using System;
-using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace Monobank.Core.Models
@@ -40,6 +39,18 @@ namespace Monobank.Core.Models
 
         [JsonPropertyName("balance")]
         public long Balance { get; set; }
+
+        [JsonPropertyName("comment")]
+        public string Comment { get; set; }
+
+        [JsonPropertyName("receiptId")]
+        public string ReceiptId { get; set; }
+
+        [JsonPropertyName("counterEdrpou")]
+        public string CounterEdrpou { get; set; }
+
+        [JsonPropertyName("counterIban")]
+        public string CounterIban { get; set; }
 
         #region Custom properties
 

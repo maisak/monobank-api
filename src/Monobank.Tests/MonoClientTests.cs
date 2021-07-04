@@ -42,9 +42,42 @@ namespace Monobank.Tests
         [Test]
         public async Task GetClientStatement()
         {
-            var statements = await _client.Client.GetStatements(new DateTime(2019, 6, 1), new DateTime(2019, 6, 30));
+            var statements = await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 6, 30));
             Assert.IsNotNull(statements);
             Assert.IsNotEmpty(statements);
+        }
+
+        [Test]
+        public async Task GetClientStatementFailOffset()
+        {
+            Exception exception = null;
+            try
+            {
+                await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 7, 30));
+            }
+            catch (Exception e)
+            {
+                exception = e;
+            }
+
+            Assert.AreEqual("Time range exceeds allowed. Difference between from and to should less then 31 day + 1 hour", exception?.Message);
+        }
+
+        [Test]
+        public async Task GetClientStatementFailTooManyRequests()
+        {
+            Exception exception = null;
+            try
+            {
+                await _client.Client.GetStatements(new DateTime(2021, 5, 1), new DateTime(2021, 5, 30));
+                await _client.Client.GetStatements(new DateTime(2021, 6, 1), new DateTime(2021, 6, 30));
+            }
+            catch (Exception e)
+            {
+                exception = e;
+            }
+
+            Assert.AreEqual("Too many requests. Only 1 request per 60 seconds", exception?.Message);
         }
     }
 }
