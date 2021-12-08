@@ -13,7 +13,7 @@
     <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Updated code to reflect API changes.</PackageReleaseNotes>
-    <PackageVersion>1.0.8</PackageVersion>
+    <PackageVersion>1.0.9</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
