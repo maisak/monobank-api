@@ -7,19 +7,26 @@
     <Authors>Anthony Maisak</Authors>
     <Company>Anthony Maisak</Company>
     <Description>Monobank.ua API wrapper</Description>
-    <Copyright>Copyright 2021</Copyright>
+    <Copyright>Copyright 2024</Copyright>
     <PackageProjectUrl>https://github.com/maisak/monobank-api</PackageProjectUrl>
     <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
-    <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Updated code to reflect API changes.</PackageReleaseNotes>
-    <PackageVersion>1.1</PackageVersion>
+    <PackageVersion>1.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.10" />
     <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="..\..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
