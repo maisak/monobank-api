@@ -13,13 +13,13 @@
     <PackageIconUrl>https://api.monobank.ua/docs/images/logo.png</PackageIconUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Updated code to reflect API changes.</PackageReleaseNotes>
-    <PackageVersion>1.0.9</PackageVersion>
+    <PackageVersion>1.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.10" />
-    <PackageReference Include="Macross.Json.Extensions" Version="2.0.0" />
-    <PackageReference Include="System.Text.Json" Version="6.0.0" />
+    <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
 </Project>
