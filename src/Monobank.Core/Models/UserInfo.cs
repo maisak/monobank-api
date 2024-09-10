@@ -5,7 +5,7 @@ namespace Monobank.Core.Models
 {
     public class UserInfo
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("clientId")]
         public string Id { get; set; }
 
         [JsonPropertyName("name")]
