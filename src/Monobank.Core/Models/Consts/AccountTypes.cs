@@ -22,6 +22,9 @@ namespace Monobank.Core.Models.Consts
         FOP = 5,
 
         [EnumMember(Value = "yellow")]
-        Yellow = 6
+        Yellow = 6,
+        
+        [EnumMember(Value = "eAid")]
+        EAid = 7
     }
 }
