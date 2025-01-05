@@ -1,0 +1,37 @@
+name: Package and publish
+
+env:
+  DOTNET_VERSION: '9.0.x'
+  PROJECT_NAME: src/Monobank.Core/Monobank.Core.csproj
+  TEST_PROJECT_NAME: src/Monobank.Tests/Monobank.Tests.csproj
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.PROJECT_NAME }}
+
+      - name: Build the project
+        run: dotnet build ${{ env.PROJECT_NAME }} --configuration Release --no-restore
+
+      - name: Test the project
+        run: dotnet test ${{ env.TEST_PROJECT_NAME }} --no-build --verbosity normal
+
+      - name: Pack the project
+        run: dotnet pack ${{ env.PROJECT_NAME }} --configuration Release --no-restore --output ./publish
+            
+      - name: Push to the packages
+        run: dotnet nuget push ./publish/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json

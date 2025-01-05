@@ -13,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "actions", "actions", "{AC20577B-F4B5-4986-9BBB-D294462F3998}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\build-and-test.yaml = ..\.github\workflows\build-and-test.yaml
+		..\.github\workflows\package.yaml = ..\.github\workflows\package.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,5 +39,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C319BAE9-149E-46C0-ABF6-40F639F75FD7}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC20577B-F4B5-4986-9BBB-D294462F3998} = {C382ABF6-3EFD-4C3A-84D4-A2A9DABD6E3E}
 	EndGlobalSection
 EndGlobal
