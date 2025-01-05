@@ -25,6 +25,9 @@ namespace Monobank.Core.Models.Consts
         Yellow = 6,
         
         [EnumMember(Value = "eAid")]
-        EAid = 7
+        EAid = 7,
+        
+        [EnumMember(Value = "madeInUkraine")]
+        MadeInUkraine = 8
     }
 }

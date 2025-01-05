@@ -8,13 +8,13 @@ namespace Monobank.Core.Models
     public class Statement
     {
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         [JsonPropertyName("time")]
         public long TimeInSeconds { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [JsonPropertyName("mcc")]
         public int MerchantCategoryCode { get; set; }
@@ -41,16 +41,16 @@ namespace Monobank.Core.Models
         public long Balance { get; set; }
 
         [JsonPropertyName("comment")]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
 
         [JsonPropertyName("receiptId")]
-        public string ReceiptId { get; set; }
+        public string ReceiptId { get; set; } = string.Empty;
 
         [JsonPropertyName("counterEdrpou")]
-        public string CounterEdrpou { get; set; }
+        public string CounterEdrpou { get; set; } = string.Empty;
 
         [JsonPropertyName("counterIban")]
-        public string CounterIban { get; set; }
+        public string CounterIban { get; set; } = string.Empty;
 
         #region Custom properties
 

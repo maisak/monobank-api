@@ -4,7 +4,7 @@ namespace Monobank.Core.Models
 {
     public class Error
     {
-        [JsonPropertyName("errorDescription")]
-        public string Description { get; set; }
+        [JsonPropertyName("errorDescription")] 
+        public string Description { get; set; } = string.Empty;
     }
 }

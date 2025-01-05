@@ -2,12 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
     <PackageId>Monobank.API.Core</PackageId>
     <PackageTags>API monobank net-standard-2</PackageTags>
     <Authors>Anthony Maisak</Authors>
     <Company>Anthony Maisak</Company>
     <Description>Monobank.ua API wrapper</Description>
-    <Copyright>Copyright 2024</Copyright>
+    <Copyright>Copyright 2025</Copyright>
     <PackageProjectUrl>https://github.com/maisak/monobank-api</PackageProjectUrl>
     <RepositoryUrl>https://github.com/maisak/monobank-api</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
@@ -15,13 +18,13 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>Git</RepositoryType>
     <PackageReleaseNotes>Updated code to reflect API changes.</PackageReleaseNotes>
-    <PackageVersion>1.2</PackageVersion>
+    <PackageVersion>1.3</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ISO.4217.CurrencyCodes" Version="1.0.10" />
     <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

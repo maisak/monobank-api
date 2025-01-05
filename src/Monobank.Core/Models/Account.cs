@@ -7,7 +7,7 @@ namespace Monobank.Core.Models
     public class Account
     {
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         [JsonPropertyName("balance")]
         public long Balance { get; set; }

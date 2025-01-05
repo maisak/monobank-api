@@ -25,7 +25,7 @@ namespace Monobank.Core.Services
             _httpClient.DefaultRequestHeaders.Add(TokenHeader, token);
         }
 
-        public async Task<UserInfo> GetClientInfoAsync()
+        public async Task<UserInfo?> GetClientInfoAsync()
         {
             var uri = new Uri(ClientInfoEndpoint, UriKind.Relative);
             var response = await _httpClient.GetAsync(uri);
@@ -33,8 +33,9 @@ namespace Monobank.Core.Services
             if (!response.IsSuccessStatusCode)
             {
                 var error = JsonSerializer.Deserialize<Error>(responseString);
-                throw new Exception(error.Description);
+                throw new Exception(error!.Description);
             }
+            
             return JsonSerializer.Deserialize<UserInfo>(responseString);
         }
 
@@ -56,16 +57,16 @@ namespace Monobank.Core.Services
             if (!response.IsSuccessStatusCode)
             {
                 var error = JsonSerializer.Deserialize<Error>(responseString);
-                throw new Exception(error.Description);
+                throw new Exception(error!.Description);
             }
             _previousRequestTimestamp = DateTime.UtcNow;
-            return JsonSerializer.Deserialize<ICollection<Statement>>(responseString);
+            return JsonSerializer.Deserialize<ICollection<Statement>>(responseString) ?? [];
         }
 
         public async Task<bool> SetWebhookAsync(string url)
         {
             // create body containing webhook url
-            var body = JsonSerializer.Serialize(new {webHookUrl = url});
+            var body = JsonSerializer.Serialize(new { webHookUrl = url });
             // uri to call
             var uri = new Uri(WebhookEndpoint, UriKind.Relative);
             // set webhook
