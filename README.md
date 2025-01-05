@@ -1,5 +1,7 @@
 # [Monobank](https://www.monobank.ua) API library
 [![NuGet version (Monobank.API.Core)](https://img.shields.io/nuget/v/Monobank.API.Core.svg?style=flat-square)](https://www.nuget.org/packages/Monobank.API.Core/)
+[![Build and test](https://github.com/maisak/monobank-api/actions/workflows/build-and-test.yaml/badge.svg)](https://github.com/maisak/monobank-api/actions/workflows/build-and-test.yaml)
+[![Package and publish](https://github.com/maisak/monobank-api/actions/workflows/package.yaml/badge.svg)](https://github.com/maisak/monobank-api/actions/workflows/package.yaml)
 
 This library is a wrapper on Monobank open API. To use it you will need to get a personal token at https://api.monobank.ua/.
 ## How to use:
