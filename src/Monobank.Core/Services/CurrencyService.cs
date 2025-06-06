@@ -14,12 +14,14 @@ namespace Monobank.Core.Services
         public async Task<ICollection<CurrencyInfo>> GetCurrencies()
         {
             var uri = new Uri($"{CurrencyEndpoint}", UriKind.Relative);
-            var response = await client.GetAsync(uri);
-            var responseString = await response.Content.ReadAsStringAsync();
+
+            var response = await client.GetAsync(uri).ConfigureAwait(false);
+            var responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
             if (!response.IsSuccessStatusCode)
             {
-                var error = JsonSerializer.Deserialize<Error>(responseString);
-                throw new Exception(error!.Description);
+                var error = JsonSerializer.Deserialize<Error>(responseString)!;
+                throw new Exception(error.Description);
             }
 
             return JsonSerializer.Deserialize<ICollection<CurrencyInfo>>(responseString) ?? [];
